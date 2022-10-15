@@ -3,17 +3,39 @@ import ReactDOM from 'react-dom/client';
 
 const root = ReactDOM.createRoot(document.getElementById('main'));
 
+class App extends React.Component {
+    render() {
+        return (
+            <div>
+                <Title/>
+                <Timer/>
+            </div>
+        )
+    }
+}
+
+class Title extends React.Component {
+    render() {
+        return (
+            <h1>First React Timer</h1>
+        );
+    }
+}
+
+class Timer extends React.Component {
+    render() {
+        return (
+            <h2>Time is : {new Date().toLocaleTimeString()}</h2>
+        );
+    }
+}
+
 const tick = () => {
-  const elem = (
-      <div>
-          <h1>First React Timer</h1>
-          <h2>Time is : {new Date().toLocaleTimeString()}</h2>
-      </div>
-  );
     root.render(
-        elem
+        <App/>
     );
 }
+
 setInterval(()=>{
 
     tick();
